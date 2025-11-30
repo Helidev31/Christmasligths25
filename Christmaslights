@@ -1,0 +1,100 @@
+###############################
+# Christmas lights - PART I
+###############################
+grid = [[0 for j in range(1000)] for i in range(1000)]
+
+def partOne():
+    # Switches
+    def turnOn(x1,y1,x2,y2):
+    for i in range(y1,y2+1,1):
+        for j in range(x1,x2+1,1):
+            grid[j][i]=1
+
+    def turnOff(x1,y1,x2,y2):
+    for i in range(y1,y2+1,1):
+        for j in range(x1,x2+1,1):
+            grid[j][i]=0
+
+    def toggle(x1,y1,x2,y2):
+    for i in range(y1,y2+1,1):
+        for j in range(x1,x2+1,1):
+            grid[j][i]=abs(grid[j][i]-1)
+
+    # ON lights count        
+    def gridCount():
+        nbr_lights=0
+        for i in range(1000):
+            for j in range(1000):
+                nbr_lights+=grid[i][j]
+        print(nbr_lights)
+
+    #////////////////////////
+    # Instructions
+    #turnOn(0,0,999,999)
+    #toggle(0,0,999,0)
+    #turnOff(499,499,500,500)
+
+    turnOn(887,9,959,629)
+    turnOn(454,398,844,448)
+    turnOff(539,243,559,965)
+    turnOff(370,819,676,868)
+    turnOff(145,40,370,997)
+    turnOff(301,3,808,453)
+    turnOn(351,678,951,908)
+    toggle(720,196,897,994)
+    toggle(831,394,904,860)
+
+    gridCount()
+
+###############################
+# Christmas lights - PART II
+###############################
+
+def partTwo():
+    # Switches
+    def turnOn(x1,y1,x2,y2):
+    for i in range(y1,y2+1,1):
+        for j in range(x1,x2+1,1):
+            grid[j][i]=grid[j][i]+1
+
+    def turnOff(x1,y1,x2,y2):
+    for i in range(y1,y2+1,1):
+        for j in range(x1,x2+1,1):
+            grid[j][i]=max(grid[j][i]-1,0)
+
+    def toggle(x1,y1,x2,y2):
+    for i in range(y1,y2+1,1):
+        for j in range(x1,x2+1,1):
+            grid[j][i]=grid[j][i]+2
+
+    # Brightness count        
+    def brightnessCount():
+        nbr_lights=0
+        for i in range(1000):
+            for j in range(1000):
+                nbr_lights+=grid[i][j]
+        print(nbr_lights)
+
+    #//////////////////////////////////////
+    # Instructions
+    #turnOn(0,0,0,0)
+    #toggle(0,0,999,999)
+
+    turnOn(887,9,959,629)
+    turnOn(454,398,844,448)
+    turnOff(539,243,559,965)
+    turnOff(370,819,676,868)
+    turnOff(145,40,370,997)
+    turnOff(301,3,808,453)
+    turnOn(351,678,951,908)
+    toggle(720,196,897,994)
+    toggle(831,394,904,860)
+
+    brightnessCount()
+
+######################################################
+# MAIN
+######################################################
+
+partOne()
+#partTwo()
